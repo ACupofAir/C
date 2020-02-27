@@ -1,0 +1,77 @@
+
+"检测文件的类型                                                                                                                                                   
+   filetype on
+   
+   " 剪切板
+  set clipboard=unnamed
+   
+  " 显示行号
+   set number
+   
+   " 开启语法高亮
+   syntax on
+  
+   " 显示标尺
+   set ruler
+  
+   " 打开折叠
+   set foldenable
+  
+  " 打开自动缩进
+   set autoindent
+  
+  " C 语言缩进
+  set cindent
+  
+   " 缩进为 4 个空格
+   set shiftwidth=4
+  
+   " tab 键相当于 4 个空格
+   set tabstop=4
+  
+  "记录历史的行数
+  set history=1000
+ set cursorline
+  
+    "高亮显示所有匹配
+  set hlsearch
+ 
+ +++++++++++++++++++++
+  " 按键映射:
+  
+  "<F5>调试按键映射：
+  map <F5> :call CompileRunGcc()<CR>
+  func! CompileRunGcc()
+          exec "w"
+          if &filetype == 'c'
+          exec "!g++ % -o %<"
+          exec "!time ./%<"
+          elseif &filetype == 'cpp'
+          exec "!g++ % -o %<"
+          exec "!time ./%<"
+          elseif &filetype == 'java'
+          exec "!javac %"
+          exec "!time java %<"
+          elseif &filetype == 'sh'
+          :!time bash %
+          elseif &filetype == 'python'
+          exec "!time python2.7 %"
+         elseif &filetype == 'html'
+          exec "!firefox % &"
+          elseif &filetype == 'go'
+          exec "!go build %<"
+          exec "!time go run %"
+          elseif &filetype == 'mkd'
+          exec "!~/.vim/markdown.pl % > %.html &"
+          exec "!firefox %.html &"
+          endif
+  endfunc
+  
+  "括号和其他成对符号的按键映射的匹配：
+  inoremap ( ()<LEFT>
+  inoremap [ []<LEFT>
+  inoremap { {}<LEFT>
+  inoremap ' ''<LEFT>
+  inoremap " ""<LEFT>
+  
+
