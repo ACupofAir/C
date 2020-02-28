@@ -44,11 +44,11 @@
   func! CompileRunGcc()
           exec "w"
           if &filetype == 'c'
-          exec "!gcc -Wall % -o %<"
-          exec "!time ./%<"
+          exec "!gcc -Wall % -o %<.exe"
+          exec "!time ./%<.exe"
           elseif &filetype == 'cpp'
-          exec "!g++ -Wall % -o %<"
-          exec "!time ./%<"
+          exec "!g++ -Wall % -o %<.exe"
+          exec "!time ./%<.exe"
           elseif &filetype == 'java'
           exec "!javac %"
           exec "!time java %<"
