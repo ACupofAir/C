@@ -1,15 +1,15 @@
 
-"检测文件的类型    
- filetype on
+"检测文件的类型                               
+  filetype on
    
-  " 剪切板
+   " 剪切板
   set clipboard=unnamed
    
   " 显示行号
-   set number
+	set number
    
    " 开启语法高亮
-   syntax on
+	 syntax on
   
    " 显示标尺
    set ruler
@@ -31,13 +31,18 @@
   
   "记录历史的行数
   set history=1000
-  set cursorline
+ set cursorline
   
     "高亮显示所有匹配
   set hlsearch
- 
+	"主题:
+	colorscheme slate
+"注释颜色:
+highlight Comment cterm=italic gui=italic ctermfg=3
+"类型颜色:
+hi Type ctermfg = 7
  +++++++++++++++++++++
- "一键编译运行（包括了库的连接） 
+ "一键编译运行（包括了库的连接）
   func! CompileGcc()
     exec "w"
     let compilecmd="!gcc "
@@ -60,6 +65,7 @@
     exec compilecmd." % ".compileflag
     exec "!time ./%<.exe"
 endfunc
+
 func! CompileGpp()
     exec "w"
     let compilecmd="!g++ "
@@ -93,7 +99,7 @@ endfunc
 
 func! CompileCode()
         exec "w"
-        if &filetype == "cc"
+        if &filetype == "cpp"
                 exec "call CompileGpp()"
         elseif &filetype == "c"
                 exec "call CompileGcc()"
@@ -109,6 +115,7 @@ map <F5> :call CompileCode()<CR>
 imap <F5> <ESC>:call CompileCode()<CR>
 vmap <F5> <ESC>:call CompileCode()<CR>
 
+ 
   "括号和其他成对符号的按键映射的匹配：
   inoremap ( ()<LEFT>
   inoremap [ []<LEFT>
