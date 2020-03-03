@@ -7,6 +7,6 @@ int main(void)
 	x_unit = x % 10;
 	x_divide_ten = x / 10;
 	x_decade = x_divide_ten % 10;
-  printf("the unit is %d\n",x_unit);
+ // printf("the unit is %d\n",x_unit);
 	printf("the decade is %d\n",x_decade);
 }
