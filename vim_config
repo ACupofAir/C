@@ -93,7 +93,7 @@ endfunc
 
 func! CompileCode()
         exec "w"
-        if &filetype == "cc"
+        if &filetype == "cpp"
                 exec "call CompileGpp()"
         elseif &filetype == "c"
                 exec "call CompileGcc()"
