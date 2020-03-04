@@ -1,4 +1,4 @@
-" version: 20.3.3.1706
+"v20.03.05.01.17
 "检测文件的类型                               
   filetype on
    
@@ -36,11 +36,26 @@
     "高亮显示所有匹配
   set hlsearch
 	"主题:
-	colorscheme slate
+	colorscheme evening
 "注释颜色:
 highlight Comment cterm=italic gui=italic ctermfg=3
 "类型颜色:
-hi Type ctermfg = 7
+hi Type ctermfg = lightcyan
+"预处理:
+hi preproc ctermfg = red
+"控制语句:
+hi statement ctermfg = lightred
+"字符串:
+hi string ctermfg = darkmagenta
+"特殊字符:
+hi special ctermfg = lightmagenta
+"数字:
+hi number ctermfg = blue
+"正常:
+hi normal ctermfg = lightgreen
+
+
+
  +++++++++++++++++++++
  "一键编译运行（包括了库的连接）
   func! CompileGcc()
