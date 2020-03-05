@@ -1,4 +1,4 @@
-"v20.03.05.01.17
+"v20.03.05.23.17_Linux
 "检测文件的类型                               
   filetype on
    
@@ -37,22 +37,24 @@
   set hlsearch
 	"主题:
 	colorscheme evening
+"设置背景色：
+hi Normal ctermbg = black
 "注释颜色:
-highlight Comment cterm=italic gui=italic ctermfg=3
+highlight Comment cterm=italic gui=italic ctermfg= yellow
 "类型颜色:
-hi Type ctermfg = lightcyan
+hi Type ctermfg = lightcyan cterm = bold
 "预处理:
-hi preproc ctermfg = red
+hi preproc ctermfg = red cterm = bold
 "控制语句:
-hi statement ctermfg = lightred
+hi statement ctermfg = lightred cterm = bold
 "字符串:
 hi string ctermfg = darkmagenta
 "特殊字符:
-hi special ctermfg = lightmagenta
+hi special ctermfg = magenta cterm = bold
 "数字:
 hi number ctermfg = blue
 "正常:
-hi normal ctermfg = lightgreen
+hi normal ctermfg = green
 
 
 
