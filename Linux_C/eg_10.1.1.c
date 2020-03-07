@@ -3,7 +3,7 @@
 int add_range(int low, int high) {
 	int i,sum;
 	for (i = low; i <= high; i++)
-		sum = sum + 1;
+		sum = sum + i;
 	return sum;
 }
 
