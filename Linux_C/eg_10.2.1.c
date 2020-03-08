@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 int main(void) {
-	printf("hi\n");
 	int sum = 0, i = 0;
 	char input[5];
 
