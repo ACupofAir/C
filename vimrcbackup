@@ -140,4 +140,8 @@ vmap <F5> <ESC>:call CompileCode()<CR>
   inoremap ' ''<LEFT>
   inoremap " ""<LEFT>
   
-
+"ESC-map:
+map  jk <Esc>
+omap jk <Esc>
+imap jk <Esc>
+cmap jk <Esc>
