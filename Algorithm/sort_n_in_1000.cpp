@@ -8,13 +8,13 @@ int main(void) {
     int n = 10;
     int input_num;
     for(int i = 0; i < n; i++) {
-        cout<<"Input a number from 0 to 1000: "<<endl;
+        cout<<"Input a number from 0 to 999: "<<endl;
         cin>>input_num;
         book[input_num]++;
     }
 
     cout<<"After sort: "<<endl;
-    for(int i = 1000; i >= 0; i--) {
+    for(int i = 999; i >= 0; i--) {
         for(int k = 1; k <= book[i]; k++) {
             cout<<i<<" ";
         }
