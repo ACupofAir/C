@@ -1,0 +1,6 @@
+msgbox("若我是白日")
+msgbox("你便是那山")
+msgbox("依你起")
+msgbox("依你落")
+msgbox("朝朝暮暮")
+msgbox("千秋万代")
