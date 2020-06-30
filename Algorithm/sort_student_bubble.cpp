@@ -13,7 +13,7 @@ int main(void) {
     student array[11];
 
     for(int i = 0; i < 5; i++) {
-        cout<<"Input student's name: "<<endl;
+        cout<<"Input student's name(new in macos): "<<endl;
         cin>>array[i].name;   
         cout<<"Input its score: "<<endl;
         cin>>array[i].score;   

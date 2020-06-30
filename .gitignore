@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+*.json
+launch.json
+.vscode/launch.json
