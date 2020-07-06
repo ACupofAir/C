@@ -6,7 +6,7 @@ int main(void) {
     int n;
     cout<<"Input the number of students: "<<endl;
     cin>>n;
-    int snCode[n] = {0};
+    int *snCode = new int[n];
 
     for(int i = 0; i < n; i++) {
         cout<<"Input your sn code: "<<endl;
@@ -36,5 +36,6 @@ int main(void) {
             cout<<snCode[i]<<"\t";
         }
     }
+    cout<<endl;
     return 0;
 }
