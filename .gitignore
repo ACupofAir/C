@@ -9,3 +9,5 @@
 
 #Add direction which will not be ignore
 !VimBackup
+!Algorithm
+!.gitignore

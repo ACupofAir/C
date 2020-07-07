@@ -20,6 +20,8 @@ int main(void) {
         qqCodes[tail] = qqCodes[head];
         head++;
     }
+     
+    cout<<endl;
 
     return 0;
 }
