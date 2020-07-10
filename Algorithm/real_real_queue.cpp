@@ -26,5 +26,5 @@ int main(void) {
         qqCodes.head++;
     }
 
-    return 0;
+		return 0;
 }
