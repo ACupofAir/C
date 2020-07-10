@@ -7,6 +7,7 @@ set langmenu=en   "set menu's language of gvim. no spaces beside '='
 set encoding=utf-8
 set fileencodings=utf8,gbk
 set backspace=2
+set showcmd
 "Ignore BigSmallSpell"
 set ignorecase smartcase
   "filetype on
@@ -45,7 +46,7 @@ set ignorecase smartcase
   set cursorcolumn
 
  "font
- set guifont=Menlo:h22
+ set guifont=Monaco:h20
  
         
     "高亮显示所有匹配
@@ -325,6 +326,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/phd'
   Plug 'kien/rainbow_parentheses.vim'
   Plug 'preservim/nerdcommenter'
+  Plug 'tpope/vim-fugitive'
   Plug 'vim-airline/vim-airline'
   Plug 'iamcco/mathjax-support-for-mkdp'
   Plug 'iamcco/markdown-preview.vim'
@@ -383,9 +385,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#ale#enabled = 1
-let g:airline_section_b = 'arc %03.3b'
-let g:airline_section_y = '%{"[fenc=".(&fenc==""?&enc:&fenc).((exists("+bomb") && &bomb)?"+":"")."]"}'
-let g:airline_section_z = '(%l,%v) %p%% ln:%L'
+let g:airline_section_y = '%{strftime("%H:%M")}'
+let g:airline_section_z = '[arc %03.3b] %{(&fenc==""?&enc:&fenc).((exists("+bomb") && &bomb)?"+":"")} (%l,%v) %p%% ln:%L'
 
 
 
@@ -428,7 +429,7 @@ let g:asyncrun_bell = 1
 nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 
 " 设置 F9 编译运行单个文件
-nnoremap <silent> <F9> :AsyncRun -mode=term g++ -std=c++11 -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" && ./$(VIM_FILENOEXT) <cr>
+nnoremap <silent> <F9> :AsyncRun -mode=term g++ "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" && time $(VIM_FILEDIR)/$(VIM_FILENOEXT)<cr>
 
 " 递归查找包含该目录的目录作为根目录，若找不到则将文件所在目录作为当前目录
 let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml'] 
