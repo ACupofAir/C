@@ -11,7 +11,7 @@ int main(void) {
   cout<<"Set the map's col number: \n";
   cin>>col;
   char **map = new char *[row]; 
-  for(int i = 0; i < col; i++) {
+  for(int i = 0; i < row; i++) {
     map[i] = new char[col];
   }
   cout<<"Set your map's object: \n";
