@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
-!.vscode/*
+.gitignore
+.vscode/*
 # Prerequisites
 *.d
 
@@ -68,8 +69,6 @@
 *.app
 *.json
 =======
-#ignore all files
-*
 
 #Add what not be ignore with specific suffix
 !*.cpp
