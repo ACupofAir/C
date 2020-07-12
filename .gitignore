@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 !.vscode/*
 # Prerequisites
 *.d
@@ -66,3 +67,17 @@
 *.out
 *.app
 *.json
+=======
+#ignore all files
+*
+
+#Add what not be ignore with specific suffix
+!*.cpp
+!*.c
+!*.h
+!*.cc
+
+#Add direction which will not be ignore
+!VimBackup
+!Algorithm
+>>>>>>> 6dbcfb525b74f7b9d3df92df4a79b3e2d64731b0

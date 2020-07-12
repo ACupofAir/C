@@ -1,0 +1,456 @@
+"'v20.03.05.23.17_Linux
+"检测文件的类型                               
+"Language:
+set nocompatible
+let $LANG = 'en'  "set message language
+set langmenu=en   "set menu's language of gvim. no spaces beside '='
+set encoding=utf-8
+set fileencodings=utf8,gbk
+set backspace=2
+set showcmd
+"Ignore BigSmallSpell"
+set ignorecase smartcase
+  "filetype on
+   
+   " 剪切板
+  set clipboard=unnamed
+   
+  " 显示行号
+  set number
+   
+   " 开启语法高亮
+   syntax on
+  
+   " 显示标尺
+   set ruler
+  
+   " 打开折叠
+   set foldenable
+  
+  " 打开自动缩进
+   set autoindent
+  
+  " C 语言缩进
+  set cindent
+  
+   " 缩进为 2 个空格
+   set shiftwidth=2
+  
+   " tab 键相当于 2 个空格
+   set tabstop=2
+   set expandtab
+   %retab!
+  "记录历史的行数
+  set history=1000
+  set cursorline
+  set cursorcolumn
+
+ "font
+ set guifont=Monaco:h20
+ 
+        
+    "高亮显示所有匹配
+  set hlsearch
+" Solarized Colorscheme Config
+" ------------------------------------------------------------------
+syntax enable
+set background=dark
+  "主题:
+  ""colorscheme evening
+"设置背景色：
+hi Normal ctermbg = black
+"注释颜色:
+highlight Comment cterm=italic gui=italic ctermfg=yellow
+"类型颜色:
+hi Type ctermfg = lightcyan cterm = bold
+
+"预处理:
+hi preproc ctermfg = red cterm = bold
+"控制语句:
+hi statement ctermfg = lightred cterm = bold
+"字符串:
+hi string ctermfg = darkmagenta
+"特殊字符:
+hi special ctermfg = magenta cterm = bold
+"数字:
+hi number ctermfg = blue
+"正常:
+hi normal ctermfg = green
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Quickly Run
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+map <F5> :call CompileRunGcc()<CR>
+
+func! CompileRunGcc()
+    exec "w" 
+    if &filetype == 'c' 
+        exec '!g++ % -o %<'
+        exec '!time ./%<'
+    elseif &filetype == 'cpp'
+        exec '!g++ % -o %<'
+        exec '!time ./%<'
+    elseif &filetype == 'python'
+        exec '!time python %'
+    elseif &filetype == 'sh'
+        :!time bash %
+    endif                                                                              
+endfunc 
+
+"" +++++++++++++++++++++
+
+""func! RunPython()
+""        exec "!python %"
+""endfunc
+""func! CompileJava()
+""    exec "!javac %"
+""endfunc
+""
+""func! CompileCode()
+""        exec "w"
+""        if &filetype == "python"
+""                exec "call RunPython()"
+""        elseif &filetype == "java"
+""                exec "call CompileJava()"
+""        endif
+""endfunc
+""
+""
+""map <F5> :call CompileCode()<CR>
+""imap <F5> <ESC>:call CompileCode()<CR>
+""""vmap <F5> <ESC>:call CompileCode()<CR>
+"------------------------------------------------------------------------------
+""  < ?жϲ???ϵͳ?Ƿ??? Windows ???? Linux >
+""------------------------------------------------------------------------------
+"if(has("win32") || has("win64") || has("win95") || has("win16"))
+    "let g:iswindows = 1
+"else
+    "let g:iswindows = 0
+"endif
+ 
+""------------------------------------------------------------------------------
+""  < ?ж????ն˻??? Gvim >
+""------------------------------------------------------------------------------
+"if has("gui_running")
+    "let g:isGUI = 1
+"else
+    "let g:isGUI = 0
+"endif
+ 
+""------------------------------------------------------------------------------
+""  < ???롢��?ӡ????????? >
+""------------------------------------------------------------------------------
+"" F9 һ?????桢???롢��?Ӵ沢????
+"map <F5> :call Run()<CR>
+"imap <F5> <ESC>:call Run()<CR>
+ 
+"" Ctrl + F9 һ?????沢????
+"map <c-F5> :call Compile()<CR>
+"imap <c-F5> <ESC>:call Compile()<CR>
+ 
+"" Ctrl + F10 һ?????沢��??
+"map <c-F10> :call Link()<CR>
+"imap <c-F10> <ESC>:call Link()<CR>
+ 
+"let s:LastShellReturn_C = 0
+"let s:LastShellReturn_L = 0
+"let s:ShowWarning = 1
+"let s:Obj_Extension = '.o'
+"let s:Exe_Extension = '.exe'
+"let s:Sou_Error = 0
+ 
+"let s:windows_CFlags = 'gcc\ -fexec-charset=gbk\ -Wall\ -g\ -O0\ -c\ %\ -o\ %<.o'
+"let s:linux_CFlags = 'gcc\ -Wall\ -g\ -O0\ -c\ %\ -o\ %<.o'
+ 
+"let s:windows_CPPFlags = 'g++\ -fexec-charset=gbk\ -Wall\ -g\ -O0\ -c\ %\ -o\ %<.o'
+"let s:linux_CPPFlags = 'g++\ -Wall\ -g\ -O0\ -c\ %\ -o\ %<.o'
+ 
+"func! Compile()
+    "exe ":ccl"
+    "exe ":update"
+    "if expand("%:e") == "c" || expand("%:e") == "cpp" || expand("%:e") == "cxx"
+        "let s:Sou_Error = 0
+        "let s:LastShellReturn_C = 0
+        "let Sou = expand("%:p")
+        "let Obj = expand("%:p:r").s:Obj_Extension
+        "let Obj_Name = expand("%:p:t:r").s:Obj_Extension
+        "let v:statusmsg = ''
+        "if !filereadable(Obj) || (filereadable(Obj) && (getftime(Obj) < getftime(Sou)))
+            "redraw!
+            "if expand("%:e") == "c"
+                "if g:iswindows
+                    "exe ":setlocal makeprg=".s:windows_CFlags
+                "else
+                    "exe ":setlocal makeprg=".s:linux_CFlags
+                "endif
+                "echohl WarningMsg | echo " compiling..."
+                "silent make
+            "elseif expand("%:e") == "cpp" || expand("%:e") == "cxx"
+                "if g:iswindows
+                    "exe ":setlocal makeprg=".s:windows_CPPFlags
+                "else
+                    "exe ":setlocal makeprg=".s:linux_CPPFlags
+                "endif
+                "echohl WarningMsg | echo " compiling..."
+                "silent make
+            "endif
+            "redraw!
+            "if v:shell_error != 0
+                "let s:LastShellReturn_C = v:shell_error
+            "endif
+            "if g:iswindows
+                "if s:LastShellReturn_C != 0
+                    "exe ":bo cope"
+                    "echohl WarningMsg | echo " compilation failed"
+                "else
+                    "if s:ShowWarning
+                        "exe ":bo cw"
+                    "endif
+                    "echohl WarningMsg | echo " compilation successful"
+                "endif
+            "else
+                "if empty(v:statusmsg)
+                    "echohl WarningMsg | echo " compilation successful"
+                "else
+                    "exe ":bo cope"
+                "endif
+            "endif
+        "else
+            "echohl WarningMsg | echo ""Obj_Name"is up to date"
+        "endif
+    "else
+        "let s:Sou_Error = 1
+        "echohl WarningMsg | echo " please choose the correct source file"
+    "endif
+    "exe ":setlocal makeprg=make"
+"endfunc
+ 
+"func! Link()
+    "call Compile()
+    "if s:Sou_Error || s:LastShellReturn_C != 0
+        "return
+    "endif
+    "let s:LastShellReturn_L = 0
+    "let Sou = expand("%:p")
+    "let Obj = expand("%:p:r").s:Obj_Extension
+    "if g:iswindows
+        "let Exe = expand("%:p:r").s:Exe_Extension
+        "let Exe_Name = expand("%:p:t:r").s:Exe_Extension
+    "else
+        "let Exe = expand("%:p:r")
+        "let Exe_Name = expand("%:p:t:r")
+    "endif
+    "let v:statusmsg = ''
+    "if filereadable(Obj) && (getftime(Obj) >= getftime(Sou))
+        "redraw!
+        "if !executable(Exe) || (executable(Exe) && getftime(Exe) < getftime(Obj))
+            "if expand("%:e") == "c"
+                "setlocal makeprg=gcc\ -o\ %<\ %<.o
+                "echohl WarningMsg | echo " linking..."
+                "silent make
+            "elseif expand("%:e") == "cpp" || expand("%:e") == "cxx"
+                "setlocal makeprg=g++\ -o\ %<\ %<.o
+                "echohl WarningMsg | echo " linking..."
+                "silent make
+            "endif
+            "redraw!
+            "if v:shell_error != 0
+                "let s:LastShellReturn_L = v:shell_error
+            "if g:iswindows
+                "if s:LastShellReturn_L != 0
+                    "exe ":bo cope"
+                    "echohl WarningMsg | echo " linking failed"
+                "else
+                    "if s:ShowWarning
+                        "exe ":bo cw"
+                    "endif
+                    "echohl WarningMsg | echo " linking successful"
+                "endif
+            "else
+                "if empty(v:statusmsg)
+                    "echohl WarningMsg | echo " linking successful"
+                "else
+                    "exe ":bo cope"
+                "endif
+            "endif
+        "else
+            "echohl WarningMsg | echo ""Exe_Name"is up to date"
+        "endif
+    "endif
+    "setlocal makeprg=make
+"endfunc
+ 
+"func! Run()
+    "let s:ShowWarning = 0
+    "call Link()
+    "let s:ShowWarning = 1
+    "if s:Sou_Error || s:LastShellReturn_C != 0 || s:LastShellReturn_L != 0
+        "return
+    "endif
+    "let Sou = expand("%:p")
+    "let Obj = expand("%:p:r").s:Obj_Extension
+    "if g:iswindows
+        "let Exe = expand("%:p:r").s:Exe_Extension
+    "else
+        "let Exe = expand("%:p:r")
+    "endif
+    "if executable(Exe) && getftime(Exe) >= getftime(Obj) && getftime(Obj) >= getftime(Sou)
+        "redraw!
+        "echohl WarningMsg | echo " running..."
+        "if g:iswindows
+            "exe ":!%<.exe"
+        "else
+            "if g:isGUI
+                "exe ":!gnome-terminal -e ./%<"
+            "else
+                "exe ":!./%<"
+            "endif
+        "endif
+        "redraw!
+        "echohl WarningMsg | echo " running finish"
+    "endif
+"endfunc
+  "括号和其他成对符号的按键映射的匹配：
+  inoremap ( ()<LEFT>
+  inoremap [ []<LEFT>
+  inoremap { {}<LEFT>
+  inoremap ' ''<LEFT>
+  inoremap " ""<LEFT>
+
+++++++++++++++++++++++++++++++++++++++++++++
+filetype off
+call plug#begin('~/.vim/plugged')
+  Plug 'preservim/nerdtree'
+  Plug 'dense-analysis/ale'
+  Plug 'vim-scripts/phd'
+  Plug 'kien/rainbow_parentheses.vim'
+  Plug 'preservim/nerdcommenter'
+  Plug 'tpope/vim-fugitive'
+  Plug 'vim-airline/vim-airline'
+  Plug 'iamcco/mathjax-support-for-mkdp'
+  Plug 'iamcco/markdown-preview.vim'
+  Plug 'godlygeek/tabular'
+  Plug 'plasticboy/vim-markdown', {'for':'markdown'}
+  Plug 'octol/vim-cpp-enhanced-highlight'
+  Plug 'nathanaelkane/vim-indent-guides'
+  "Plug 'rhysd/vim-clang-format'
+  Plug 'skywind3000/asyncrun.vim'
+  Plug 'Valloric/YouCompleteMe'
+  Plug 'altercation/vim-colors-solarized'
+  
+  
+++++++++++++++++++++++++++++++++++++++++
+""deoplete setting:"
+"set pyxversion=3
+"let g:python3_host_prog = "/usr/local/bin/python3"
+
+  "if has('nvim')
+  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+  "Plug 'Shougo/deoplete.nvim'
+  "Plug 'roxma/nvim-yarp'
+  "Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+  "Plug 'Shougo/deoplete-clangx'
+"let g:deoplete#enable_at_startup = 1
+  call plug#end()
+colorscheme solarized
+ 
+++++++++++++++++++++++++++++++++++++++++++++
+"plugin settings:
+
+++++++++++++++++++++++++++++++++++++++++++++++
+"Youcompleteme"
+highlight PMenu ctermfg=0 ctermbg=242 "guifg=black guibg=grey
+highlight PMenuSel ctermfg=242 ctermbg=8
+set completeopt=menu,menuone
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_show_diagnostics_ui = 0
+
+"vim-indent-guides setup"
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+
+++++++++++++++++++++++++++++++++++++++++++++++++
+"Deny toobar and menubar:
+set guioptions-=m
+set guioptions-=T
+
+set laststatus=2
+
+"airpowerline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline_section_y = '%{strftime("%H:%M")}'
+let g:airline_section_z = '[arc %03.3b] %{(&fenc==""?&enc:&fenc).((exists("+bomb") && &bomb)?"+":"")} (%l,%v) %p%% ln:%L'
+
+
+
+"Rainbow Parentheses"
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+"instant setup"
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
+"Nerdtree set:
+map <C-e> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1" 显示隐藏文件
+let NERDTreeMinimalUI=1
+let NERDTreeAutoDeleteBuffer=1
+
+"ale/linter setup"
+let g:ale_lint_on_insert_leave = 1
+let g:ale_linters = {
+\   'cpp': ['clang'],
+\   'c': ['clang'],
+\}
+let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+
+"vim-cpp-enhanced setup"
+let g:cpp_class_scope_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_member_variable_highlight = 1
+
+"Asyncrun"
+" 自动打开 quickfix window ，高度为 6
+let g:asyncrun_open = 6
+
+" 任务结束时候响铃提醒
+let g:asyncrun_bell = 1
+
+" 设置 F10 打开/关闭 Quickfix 窗口
+nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
+
+" 设置 F9 编译运行单个文件
+nnoremap <silent> <F9> :AsyncRun -mode=term g++ "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" && time $(VIM_FILEDIR)/$(VIM_FILENOEXT)<cr>
+
+" 递归查找包含该目录的目录作为根目录，若找不到则将文件所在目录作为当前目录
+let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml'] 
+" 设置 F7 编译项目
+nnoremap <silent> <F7> :AsyncRun -cwd=<root> make <cr>
+
+
+"Markdown"
+let g:vim_markdown_math = 1
+let g:vim_markdown_folding_disabled = 1
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+"maps
+"Vertical Split Buffer Function"
+function VerSplBuf(buffer)
+  execute"vert belowright sb" a:buffer
+ endfunction
+ command -nargs=1 Vb call VerSplBuf(<f-args>)
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++
+"Environment Settings:"
+"set pythonthreedll=C:\Users\timet\AppData\Local\Programs\Python\Python37\python37.dll
+set pythonthreedll=~/AppData/Local/Programs/Python/Python37/python37.dll
