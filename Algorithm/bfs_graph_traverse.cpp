@@ -33,7 +33,7 @@ void bfs_graph_traverse(int currentLocation) {
   }
   head++;
   bfs_graph_traverse(queue[head].location);
-  return;
+  //return;
 }
 
 int main(void) {
@@ -43,6 +43,7 @@ int main(void) {
   book[1] = 1;
 
   bfs_graph_traverse(1);
+  printf("Without return is ok\n");
   for(int i = 1; i <= 5; i++) {
     printf("queue[%d] = %d\n",queue[i].location,queue[i].step);
   }
