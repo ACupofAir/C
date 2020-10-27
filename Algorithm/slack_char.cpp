@@ -18,29 +18,30 @@ int main(void) {
     for(int i = 0; i <= mid; i++) {
         slack[top++]=testText[i];
     }
-
-    //check arrary
-    int next;
-    if(len%2==0) {
+                    
+    //check arrary  
+    int next;       
+    if(len%2==0) {  
         next = mid + 1;
-    } else {
+    } else {        
         next = mid + 2;
-    }
-
+    }               
+                    
     for(int i = next; i < len; i++) {
         if(testText[i] != slack[--top]) {
-            break;
-        }
-    }
-
-    if(top == 0) {
+            break;  
+        }           
+    }               
+                    
+    if(top == 0) {  
         cout<<"It is symmetry.";
-    } else {
+    } else {        
         cout<<"It is not symmetry.";
-    }
-    return 0;
-}
-<<<<<<< HEAD
-=======
-
+    }               
+    return 0;       
+}                   
+<<<<<<< HEAD        
+=======             
+                    
 >>>>>>> cb7bde09562789fbf90a51b3213adb46a24ea77e
+                    

@@ -15,13 +15,13 @@ int main(void)
   {                                                                                                    
     //produce planes                                                                                   
     // will_fly_plane_num = rand() % 4;                                                                   
-    will_fly_plane_num = 3;                                                                   
-    will_land_plane_num = rand() % 4;                                            
-    vector<Plane> fly_queue;                                                                           
-    for (int i = 0; i < will_fly_plane_num; i++)                                                       
-    {                                                                                                  
-      fly_queue.push_back(Plane(2 * i, 0));                                                            
-    }                                                                                                  
+    will_fly_plane_num = 3;                                                                                            
+    will_land_plane_num = rand() % 4;                                                                                  
+    vector<Plane> fly_queue;                                                                                           
+    for (int i = 0; i < will_fly_plane_num; i++)                                                                       
+    {                                                                                                                  
+      fly_queue.push_back(Plane(2 * i, 0));                                                                            
+    }                                                                                                                  
     vector<Plane> land_queue;                                                                                                  
     for (int i = 0; i < will_land_plane_num; i++)                                                                              
     {                                                                                                                          
@@ -31,8 +31,8 @@ int main(void)
     //Fly planes when my_time is odd; and land planes when it's even                                                              
     if (my_time % 2 == 0)                                                                                                         
     {                                                                                                                          
-      cout << "Time: " << my_time << endl;                                   
-      int land_mark = 0;                                                     
+      cout << "Time: " << my_time << endl;                                                                             
+      int land_mark = 0;                                                                                               
       //If there is someone must be land, make the third way to land it                                                        
       for (int i = 0; i < land_queue.size(); i++)                                                                              
       {                                                                                                                        
