@@ -1,6 +1,5 @@
 #include <iostream>
-#include <list>                   
-#include "deleteNode.h"
+#include "deleteNode.h" 
 using namespace std;              
 template <typename T>             
 std::ostream &operator<<(std::ostream &s, const std::list<T> &v)
@@ -17,7 +16,11 @@ std::ostream &operator<<(std::ostream &s, const std::list<T> &v)
 int main(void) {                       
   list<int> test_list {2,4,6,7,3};     
   list<int>::iterator it = test_list.begin();
-  it++;                
-  cout<<*it;                  
+  it++;                               
+  list<int>* a;
+  a = it;  
+  print_a_node(test_list, it);
+  // deleteNode(test_list, it);          
+  cout<<test_list;                    
   return 0;                            
 }                                      
