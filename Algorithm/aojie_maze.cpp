@@ -1,10 +1,10 @@
 #include <iostream>
-#include <stack>       
-using namespace std;   
-                        
-struct Offsets          
-{                       
-    int a, b; // a和b是x,y方向的偏移
+#include <stack>           
+using namespace std;       
+                           
+struct Offsets                     
+{                                  
+    int a, b; // a和b是x,y方向的偏移      
     // char *dir; // dir是方向 ISO C++11是不允许字符指针指向（存储）字符串
 };                                     
                                        
@@ -18,10 +18,10 @@ Offsets direction[4] = {
 struct items                                              
 {                                                          
     int x, y, dir;                                         
-};                                     
-                                       
-int maze[15][15] =                     
-    {                                  
+};                                                    
+                                                      
+int maze[15][15] =                                    
+    {                                                 
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
         {1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
         {1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1},
@@ -63,6 +63,11 @@ void Path(int x, int y, int m, int n)
             if (g == m && h == n)                              
             { // 到达出口                                          
                 // 逆向输出路径                                      
+                //Repush i,j       
+                tmp.x = i;         
+                tmp.y = j;         
+                tmp.dir = d;       
+                st.push(tmp);      
                 cout << m << ", " << n << ", " << d << endl;   
                 while (!st.empty())                            
                 {                                              
