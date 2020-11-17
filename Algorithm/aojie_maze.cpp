@@ -3,13 +3,13 @@
 using namespace std;       
                            
 struct Offsets                     
-{                                  
-    int a, b; // a和b是x,y方向的偏移      
+{                                                     
+    int a, b; // a和b是x,y方向的偏移                         
     // char *dir; // dir是方向 ISO C++11是不允许字符指针指向（存储）字符串
-};                                     
-                                       
-Offsets direction[4] = {               
-    {-1, 0}, // 北：{-1, 0, "N"}         
+};                                                    
+                                                      
+Offsets direction[4] = {                              
+    {-1, 0}, // 北：{-1, 0, "N"}                        
     {0, 1},  // 东：{0, 1, "E"}                             
     {1, 0},  // 南：{1, 0, "S"}                             
     {0, -1}, // 西：{0, -1, "W"}                            
@@ -63,11 +63,11 @@ void Path(int x, int y, int m, int n)
             if (g == m && h == n)                              
             { // 到达出口                                          
                 // 逆向输出路径                                      
-                //Repush i,j       
-                tmp.x = i;         
-                tmp.y = j;         
-                tmp.dir = d;       
-                st.push(tmp);      
+                //Repush i,j                                   
+                tmp.x = i;                                     
+                tmp.y = j;                                     
+                tmp.dir = d;                                   
+                st.push(tmp);                                  
                 cout << m << ", " << n << ", " << d << endl;   
                 while (!st.empty())                            
                 {                                              
