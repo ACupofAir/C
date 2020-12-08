@@ -1,8 +1,9 @@
 #ifndef TREE_H
 #define TREE_H                                                                          
 #include <iostream>                                                                     
+#include <algorithm>
 #include <queue>                                                                        
-#include <vector>                                                                    
+#include <vector>                                                                      
 #include <cmath>                                                                       
 using namespace std;                                                                    
                                                                                         
@@ -26,6 +27,8 @@ public:
   TreeNode(T data)                                                                     
   {                                                                                    
     this->data = data;                                                                 
+    this->leftChild = nullptr; 
+    this->rightChild = nullptr;
   }                                                                                    
   TreeNode(T data, TreeNode<T>* leftChild, TreeNode<T>* rightChild)                    
   {                                                                                    
@@ -45,6 +48,7 @@ public:
   //default:                                                                           
   Tree<T>()                                                                            
   {                                                                                    
+    this->root = nullptr;      
   }                                                                                    
                                                                                        
   Tree<T>(vector<T> &nodeVector) {                                                     
@@ -76,7 +80,7 @@ public:
     destroyTree(this->root);                                                           
   }                                                                                    
   void destroyTree(TreeNode<T>* cur) {                                                 
-    cout<<"\nDelete it";                                                               
+    // cout<<"Delete it\n";                                                               
     if(!cur) {                                                                         
       TreeNode<T>* temp_left = cur->leftChild;                                         
       TreeNode<T>* temp_right = cur->rightChild;                                        
@@ -100,6 +104,7 @@ public:
   void Postorder();                                                                      
   void Postorder(TreeNode<T> *);                                                         
   void LevelOrder();                                                                     
+  int getHeight(TreeNode<T> *);  
   bool isEmpty() {                                                                     
     return !this->root;                                                                
   }                                                                                    
@@ -181,8 +186,15 @@ void Tree<T>::LevelOrder()
 }                                                                                               
                                                                                                 
 template <class T>                                                                              
-TreeNode<T>* Tree<T>::Copy(TreeNode<T> *origNode) {                                             
-  if(!origNode) return 0;                                                                       
-  return new TreeNode<T>(origNode->data, Copy(origNode->leftChild), Copy(origNode->rightChild));
-}                                                                                               
-#endif                                                                                          
+TreeNode<T>* Tree<T>::Copy(TreeNode<T> *origNode) {                                                
+  if(!origNode) return 0;                                                                          
+  return new TreeNode<T>(origNode->data, Copy(origNode->leftChild), Copy(origNode->rightChild));   
+}                                                                                                  
+                                                                                                   
+template <class T>                                                                                 
+int Tree<T>::getHeight(TreeNode<T>* rootNode)                                                          
+{                                                                                                  
+  return rootNode == NULL ? 0 : max(getHeight(rootNode -> leftChild), getHeight(rootNode -> rightChild)) + 1;
+}                                                                                                  
+                                                                          
+#endif                                                                                             
