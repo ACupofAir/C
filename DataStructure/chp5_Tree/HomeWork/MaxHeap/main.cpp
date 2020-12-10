@@ -24,7 +24,7 @@ void getNElementsHeapTimeNormal(int n)
     testHeap.Push(rand());                                           
   }                                                                  
   QueryPerformanceCounter(&t2);                                     
-  cout<<n<<" \t\t "<<(t2.QuadPart-t1.QuadPart)<<"us\n";    
+  cout<<n<<" \t\t "<<(t2.QuadPart-t1.QuadPart)<<"us\n";     
 }                                                                    
                                                                      
                                                                      
