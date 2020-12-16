@@ -27,4 +27,3 @@ void Transpose(int** a; int n)
   }
   count++; //for last for_i
 }
-
