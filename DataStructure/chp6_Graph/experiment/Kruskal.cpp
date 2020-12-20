@@ -1,126 +1,43 @@
-#include <iostream>
-#include <vector>
+#include "Edge.h"
+#include "Set.h"
+#include "Graph.h"
+#include "MinHeap.h"
 
 using namespace std;
 
-class Edge
+Graph Kruskal(Graph &graph)
 {
-private:
-  int head;
-  int tail;
-  int weight;
-
-public:
-  Edge(){};
-  Edge(int head, int tail, int weight)
+  MinHeap<Edge> heapE;
+  for(int i = 0; i < graph.getEdge().size(); i++)
   {
-    this->head = head;
-    this->tail = tail;
-    this->weight = weight;
+    heapE.Push(graph.getEdge()[i]);
   }
-  int getHead()
+  Graph newGraph(graph.getENum(), graph.getVNum());
+  // Set vertice(graph.getVNum());
+  Set vertice(7);
+
+  while(heapE.Top().getWeight()>0)
   {
-    return this->head;
+    Edge minEdge = heapE.Top();
+    heapE.Pop();
+    int newHead = minEdge.getHead();
+    int newTail = minEdge.getTail();
+    int p1 = vertice.CollapsingFind(newHead);
+    int p2 = vertice.CollapsingFind(newTail);
+    if (p1 != p2)
+    {
+      vertice.WeightUnion(p1,p2);
+      newGraph.addEdge(minEdge);
+    }
   }
-  int getTail()
-  {
-    return this->tail;
-  }
-  int getWeight()
-  {
-    return this->weight;
-  }
-};
-
-class Graph
-{
-private:
-  int eNum;
-  int vNum;
-  vector<Edge> edge;
-
-public:
-  Graph(int eNum, int vNum);
-  void addEdge(Edge newEdge);
-  void print();
-};
-
-class Set
-{
-private:
-  int n;
-  int *parent;
-
-public:
-  Set(int num);
-  void WeightUnion(int i, int j);
-  int CollapsingFind(int i);
-};
-
-Set::Set(int n)
-{
-  if (n < 2)
-    throw "Must has at least two elements.";
-  this->n = n;
-  this->parent = new int[n];
-  for (int i = 0; i < n; i++)
-  {
-    parent[i] = -1;
-  }
-}
-
-void Set::WeightUnion(int i, int j)
-{
-  int temp = parent[i] + parent[j];
-  if(parent[i] > parent[j])
-  {
-    parent[i] = parent[j];
-    parent[j] = temp;
-  }
-  else
-  {
-    parent[j] = parent[i];
-    parent[i] = temp;
-  }
-}
-
-int Set::CollapsingFind(int i)
-{
-  int root;
-  for(root = i; parent[root] >= 0; root = parent[root]);
-  while(i != root)
-  {
-    int s = parent[i];
-    parent[i] = root;
-    i = s;
-  }
-  return i;
-}
-
-Graph::Graph(int eNum, int vNum)
-{
-  this->eNum = eNum;
-  this->vNum = vNum;
-  this->edge = vector<Edge>(eNum);
-}
-
-void Graph::print()
-{
-  for(int i = 0; i < this->edge.size(); i++)
-  {
-    cout<<"("<<this->edge[i].getHead()<<", "<<this->edge[i].getTail()<<", "<<this->edge[i].getWeight()<<")"<<endl;
-  }
-}
-
-void Graph::addEdge(Edge newEdge)
-{
-  this->edge.push_back(newEdge);
+  return newGraph;
 }
 
 int main(void)
 {
   Graph testGraph(0,0);
   vector<Edge> edges(9);
+  // MinHeap<Edge> tempEdges;
   edges[0] = Edge(0,1,28);
   edges[1] = Edge(1,2,16);
   edges[2] = Edge(2,3,12);
@@ -133,7 +50,15 @@ int main(void)
   for(int i = 0; i < edges.size(); i++)
   {
     testGraph.addEdge(edges[i]);
+    // tempEdges.Push(edges[i]);
   }
+
+  Graph newGraph(0, 0);
+  newGraph = Kruskal(testGraph);
+
+  cout << "Old:\n";
   testGraph.print();
+  cout<<"New:\n";
+  newGraph.print();
   return 0;
 }
