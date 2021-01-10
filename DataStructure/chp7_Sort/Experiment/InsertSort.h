@@ -23,4 +23,14 @@ void InsertSort(T *a, const int n)
   }
 }
 
+int* generateInsertSortArr(int n)
+{
+  int* worstArr = new int[n+1];
+  for(int i = 1; i <= n; i++)
+  {
+    worstArr[i] = n-i+1;
+  }
+  return worstArr;
+}
+
 #endif

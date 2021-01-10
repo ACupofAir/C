@@ -2,7 +2,6 @@
 
 int box[10] = {0};
 int book[10] = {0};
-
 void dfs(int step, int n) {
   int i;
   if(step==n+1) {
