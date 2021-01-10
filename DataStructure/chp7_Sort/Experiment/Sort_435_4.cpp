@@ -14,19 +14,39 @@ double getTestTime(int n, void (*sortFunc)(int *arr, int n), int *(*generateSort
   LARGE_INTEGER t1, t2, tc;
   QueryPerformanceFrequency(&tc);
   QueryPerformanceCounter(&t1);
-  for (int i = 0; i < 100; i++)
+  for (int i = 0; i < 10; i++)
   {
     sortFunc(arr, n);
   }
   QueryPerformanceCounter(&t2);
-  return (double)(t2.QuadPart - t1.QuadPart)/100;
+  return (double)(t2.QuadPart - t1.QuadPart)/10;
+}
+
+void mixSort(int* arr, int n)
+{
+  if (n < 300)
+  {
+    InsertSort(arr, n);
+  }
+  else
+  {
+    MergeSort(arr, n);
+  }
 }
 
 int main(void)
 {
-  int n = 10;
-  cout << getTestTime(n, InsertSort<int>, generateInsertSortArr)<<endl;
-  cout << getTestTime(n, MergeSort<int>, generateMergeSortArr)<<endl;
-  cout << getTestTime(n, HeapSort<int>, generateHeapSortArr)<<endl;
-  cout << getTestTime(n, quickSort<int>, generateQuickSortArr)<<endl;
+  int arr[7] = {100, 500, 1000, 2000, 4000, 8000, 16000};
+
+  cout<<"n"<<"\t\tInsert"<<"\t\tMerge"<<"\t\tHeap"<<"\t\tQuick"<<"\t\tMix\n";
+  for (int i = 0; i < 7; i++)
+  {
+    cout << arr[i] << "\t\t";
+    cout << getTestTime(arr[i], InsertSort<int>, generateInsertSortArr) << "\t\t";
+    cout << getTestTime(arr[i], MergeSort<int>, generateMergeSortArr) << "\t\t";
+    cout << getTestTime(arr[i], HeapSort<int>, generateHeapSortArr) << "\t\t";
+    cout << getTestTime(arr[i], quickSort<int>, generateQuickSortArr) << "\t\t";
+    cout << getTestTime(arr[i], mixSort, generateQuickSortArr) << "\n";
+  }
+  return 0;
 }

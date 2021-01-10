@@ -4,6 +4,22 @@
 #include <windows.h>
 #include "Swap.h"
 
+template <class T>
+void median(T &a, T &b, T &c)
+{
+  if ((a >= b && a <= c) || (a >= c && a <= b))
+    return;
+  if ((b >= a && b <= c) || (b >= c || b <= a))
+  {
+    swap(a, b);
+    return;
+  }
+  if ((c >= a && c <= b) || (c >= b && c <= a))
+  {
+    swap(a, c);
+    return;
+  }
+}
 
 template <class T>
 void quickSort(T *arr, const int left, const int right)
@@ -12,11 +28,10 @@ void quickSort(T *arr, const int left, const int right)
   {
     //Init pivot
     T pivot = arr[left];
-
     //Init two guards:
     int i = left;
     int j = right + 1;
-
+    median(arr[left],arr[(left+right)/2],arr[right]);
     do
     {
       do
