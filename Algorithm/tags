@@ -1,0 +1,120 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+N	.\dfs_n_arrange.cpp	3;"	d	file:
+Node	.\bfs_graph_traverse.cpp	/^class Node {$/;"	c	file:
+Offsets	.\aojie_maze.cpp	/^struct Offsets                     $/;"	s	file:
+Path	.\aojie_maze.cpp	/^void Path(int x, int y, int m, int n)                          $/;"	f
+Queue	.\cat_fish.cpp	/^class Queue {$/;"	c	file:
+Slack	.\cat_fish.cpp	/^class Slack {$/;"	c	file:
+a	.\aojie_maze.cpp	/^    int a, b; \/\/ a和b是x,y方向的偏移                         $/;"	m	struct:Offsets	file:
+array	.\sort_quick_example..cpp	/^int array[n] = {0};$/;"	v
+b	.\aojie_maze.cpp	/^    int a, b; \/\/ a和b是x,y方向的偏移                         $/;"	m	struct:Offsets	file:
+bfs_five_five	.\bfs_five_five.cpp	/^void bfs_five_five(int step) {$/;"	f
+bfs_graph_traverse	.\bfs_graph_traverse.cpp	/^void bfs_graph_traverse(int currentLocation) {$/;"	f
+book	.\bfs_five_five.cpp	/^int book[6] = {0};$/;"	v
+book	.\bfs_graph_traverse.cpp	/^int book[6] = {0};$/;"	v
+book	.\dfs_city.cpp	/^int book[6] = {0};$/;"	v
+book	.\dfs_first.cpp	/^int book[10] = {0};$/;"	v
+book	.\dfs_labyrinth.cpp	/^int book[50][50];$/;"	v
+book	.\dfs_match.cpp	/^int box[10], book[10], total = 0;$/;"	v
+book	.\dfs_n_arrange.cpp	/^int book[N+1] = {0};$/;"	v
+book	.\dijkstra_single_shortest_path.c	/^int book[7] = {0};$/;"	v
+book	.\graph_five_five.cpp	/^int book[6] = {0};$/;"	v
+box	.\dfs_first.cpp	/^int box[10] = {0};$/;"	v
+box	.\dfs_match.cpp	/^int box[10], book[10], total = 0;$/;"	v
+box	.\dfs_n_arrange.cpp	/^int box[N+1] = {0};$/;"	v
+city	.\Floyd_Warshall.cpp	/^int city[5][5] = {$/;"	v
+city	.\dfs_city.cpp	/^int city[6][6] = {$/;"	v
+city	.\dijkstra_single_shortest_path.c	/^int city[7][7] = {$/;"	v
+data	.\cat_fish.cpp	/^  char data[100];$/;"	m	class:Queue	file:
+data	.\cat_fish.cpp	/^  char data[10];$/;"	m	class:Slack	file:
+data	.\real_real_queue.cpp	/^        char data[20];$/;"	m	class:queue	file:
+dfs	.\dfs_first.cpp	/^void dfs(int step, int n) {$/;"	f
+dfs	.\dfs_labyrinth.cpp	/^void dfs(int x, int y, int step) {$/;"	f
+dfs	.\dfs_match.cpp	/^void dfs(int step) {$/;"	f
+dfs_city	.\dfs_city.cpp	/^void dfs_city(int step) {$/;"	f
+dfs_graph_five	.\graph_five_five.cpp	/^void dfs_graph_five(int step) {$/;"	f
+dfs_n_arrange	.\dfs_n_arrange.cpp	/^void dfs_n_arrange (int step) {$/;"	f
+dijkstra	.\dijkstra_single_shortest_path.c	/^void dijkstra(int cur) {$/;"	f
+dir	.\aojie_maze.cpp	/^    int x, y, dir;                                         $/;"	m	struct:items	file:
+direction	.\aojie_maze.cpp	/^Offsets direction[4] = {                              $/;"	v
+dis	.\dijkstra_single_shortest_path.c	/^int dis[7] = {0,0,1,12,99,99,99};$/;"	v
+father	.\bfs_labyrinth.cpp	/^    int father;$/;"	m	class:note	file:
+find_next_cur	.\dijkstra_single_shortest_path.c	/^int find_next_cur(int a[7]) {$/;"	f
+getMatchNum	.\search_match.cpp	/^int getMatchNum(int n) {$/;"	f
+graph	.\bfs_five_five.cpp	/^int graph[6][6] = {$/;"	v
+graph	.\bfs_graph_traverse.cpp	/^int graph[6][6] = {$/;"	v
+graph	.\graph_five_five.cpp	/^int graph[6][6] = {$/;"	v
+head	.\bfs_five_five.cpp	/^int head = 1;$/;"	v
+head	.\bfs_graph_traverse.cpp	/^int head = 1;$/;"	v
+head	.\cat_fish.cpp	/^  int head;$/;"	m	class:Queue	file:
+head	.\real_real_queue.cpp	/^        int head;$/;"	m	class:queue	file:
+items	.\aojie_maze.cpp	/^struct items                                              $/;"	s	file:
+location	.\bfs_graph_traverse.cpp	/^    int location;$/;"	m	class:Node	file:
+m	.\dfs_labyrinth.cpp	/^int m,n;$/;"	v
+main	.\Floyd_Warshall.cpp	/^int main(void) {$/;"	f
+main	.\aojie_maze.cpp	/^int main()                                                     $/;"	f
+main	.\bfs_five_five.cpp	/^int main(void) {$/;"	f
+main	.\bfs_graph_traverse.cpp	/^int main(void) {$/;"	f
+main	.\bfs_labyrinth.cpp	/^int main(void) {$/;"	f
+main	.\bomb_search.cpp	/^int main(void) {$/;"	f
+main	.\cat_fish.cpp	/^int main(void) {$/;"	f
+main	.\dfs_city.cpp	/^int main(void) {$/;"	f
+main	.\dfs_first.cpp	/^int main(void) {$/;"	f
+main	.\dfs_labyrinth.cpp	/^int main(void) {$/;"	f
+main	.\dfs_match.cpp	/^int main(void) {$/;"	f
+main	.\dfs_n_arrange.cpp	/^int main(void) {$/;"	f
+main	.\dijkstra_single_shortest_path.c	/^int main(void) {$/;"	f
+main	.\enumerate_book.c	/^int main(void) {$/;"	f
+main	.\enumerate_two.cpp	/^int main(void) {$/;"	f
+main	.\graph_five_five.cpp	/^int main(void) {$/;"	f
+main	.\linked_list_test.cpp	/^int main(void) {$/;"	f
+main	.\list_aojie.cpp	/^int main(void) {$/;"	f
+main	.\pointer_test.c	/^int main(void) {$/;"	f
+main	.\queue.cpp	/^int main(void) {$/;"	f
+main	.\real_queue.cpp	/^int main(void) {$/;"	f
+main	.\real_real_queue.cpp	/^int main(void) {$/;"	f
+main	.\search_match.cpp	/^int main(void) {$/;"	f
+main	.\slack_char.cpp	/^int main(void) {$/;"	f
+main	.\sort_barrel_sn.cpp	/^int main(void) {    $/;"	f
+main	.\sort_bubble.cpp	/^int main(void) {$/;"	f
+main	.\sort_bubble_sn.cpp	/^int main(void) {$/;"	f
+main	.\sort_five_people.cpp	/^int main(void) {$/;"	f
+main	.\sort_n_in_1000.cpp	/^int main(void) {$/;"	f
+main	.\sort_quick_example..cpp	/^int main(void) {$/;"	f
+main	.\sort_quick_sn.cpp	/^int main(void) {$/;"	f
+map	.\dfs_labyrinth.cpp	/^int map[50][50];$/;"	v
+maze	.\aojie_maze.cpp	/^int maze[15][15] =                                    $/;"	v
+min	.\dfs_labyrinth.cpp	/^int min = 1000;$/;"	v
+n	.\dfs_labyrinth.cpp	/^int m,n;$/;"	v
+n	.\sort_quick_example..cpp	/^const int n = 2;$/;"	v
+note	.\bfs_labyrinth.cpp	/^class note {$/;"	c	file:
+p	.\dfs_labyrinth.cpp	/^int p,q;$/;"	v
+printCity	.\Floyd_Warshall.cpp	/^void printCity(int array[][5]) {$/;"	f
+print_list	.\list_aojie.cpp	/^void print_list(list<int> ran_list) {$/;"	f
+q	.\dfs_labyrinth.cpp	/^int p,q;$/;"	v
+que	.\bfs_five_five.cpp	/^int que[6] = {1,1};\/\/make the que[1] = 1$/;"	v
+queue	.\bfs_graph_traverse.cpp	/^Node queue[6];$/;"	v
+queue	.\real_real_queue.cpp	/^class queue {$/;"	c	file:
+quickSort	.\sort_quick_example..cpp	/^void quickSort(int left,int right) {$/;"	f
+quickSort	.\sort_quick_sn.cpp	/^void quickSort(int* array, int left, int right) {$/;"	f
+step	.\bfs_graph_traverse.cpp	/^    int step;$/;"	m	class:Node	file:
+step	.\bfs_graph_traverse.cpp	/^int step = 0;$/;"	v
+step	.\bfs_labyrinth.cpp	/^    int step;$/;"	m	class:note	file:
+sum	.\graph_five_five.cpp	/^int sum = 0;$/;"	v
+sumStep	.\dfs_city.cpp	/^int sumStep = 0;$/;"	v
+swap	.\sort_bubble.cpp	/^void swap(int& m, int& n) {$/;"	f
+tail	.\bfs_five_five.cpp	/^int tail = 1;$/;"	v
+tail	.\bfs_graph_traverse.cpp	/^int tail = 1;$/;"	v
+tail	.\cat_fish.cpp	/^  int tail;$/;"	m	class:Queue	file:
+tail	.\real_real_queue.cpp	/^        int tail;$/;"	m	class:queue	file:
+top	.\cat_fish.cpp	/^  int top;$/;"	m	class:Slack	file:
+total	.\dfs_match.cpp	/^int box[10], book[10], total = 0;$/;"	v
+x	.\aojie_maze.cpp	/^    int x, y, dir;                                         $/;"	m	struct:items	file:
+x	.\bfs_labyrinth.cpp	/^    int x;$/;"	m	class:note	file:
+y	.\aojie_maze.cpp	/^    int x, y, dir;                                         $/;"	m	struct:items	file:
+y	.\bfs_labyrinth.cpp	/^    int y;$/;"	m	class:note	file:

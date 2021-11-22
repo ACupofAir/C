@@ -12,7 +12,7 @@ public:
     // cout<<"Init Sucessfully"<<endl;              
   };                                             
   void Insert(const pair<K,E>& thePair);         
-                                                 
+
 private:                                         
                                                  
 };                                               
